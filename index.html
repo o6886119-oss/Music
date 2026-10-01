@@ -1,0 +1,449 @@
+Create a complete Android music player app called "Water Glass Music".
+
+TECH STACK
+- Kotlin
+- Jetpack Compose
+- Material 3
+- Android Media3 / ExoPlayer
+- MediaSession
+- Min SDK 26+
+- Target latest stable Android SDK
+- Use clean, production-ready architecture.
+- The app is intended for my personal Android phone.
+
+MAIN DESIGN
+Create a premium iOS-inspired "Water Glass / Liquid Glass" interface.
+
+IMPORTANT:
+The background must NOT be pure black.
+
+Use:
+- Background: #090A0C
+- Glass: translucent white/black layers
+- Primary text: #FFFFFF
+- Secondary text: #A8A8AE
+- Glass highlight: #FFFFFF with low opacity
+- Soft blue glow: #3FA9FF
+- Soft cyan/green glow: #35E0C0
+
+The UI should feel like:
+- Frosted water glass
+- Liquid glass
+- iOS-style translucent panels
+- Soft reflections
+- Depth
+- Subtle blur
+- Smooth animations
+- Premium minimal interface
+
+GLASSMORPHISM
+Every major panel should use:
+- Rounded corners
+- Semi-transparent background
+- Soft border
+- Subtle inner highlight
+- Background blur where Android supports it
+- Soft shadow
+- Layered translucent gradients
+
+Do NOT make the UI look like normal Material Design.
+
+HOME SCREEN
+Create:
+
+Top:
+- App title: "Water Glass"
+- Small subtitle: "Your Music"
+- Settings icon
+
+Search:
+- Large rounded glass search bar
+- Search icon
+- Search animation
+- Import/scan button
+
+Music list:
+Each song should be displayed as a glass card.
+
+Song card:
+- Album artwork
+- Glass reflection around album artwork
+- Song title
+- Artist name
+- Small play button
+- Liquid/glow animation when currently playing
+
+When a song starts:
+- Card should slightly scale/pulse
+- Soft glow should appear
+- Album-art colors should create a subtle animated background glow
+
+MUSIC IMPORT
+Scan the Android MediaStore for all local music.
+
+Allow:
+- One-click "Scan Music"
+- Automatically find music files
+- MP3
+- M4A
+- AAC
+- FLAC
+- WAV
+- OGG
+
+When songs are imported:
+- Animate each song card appearing like a water droplet
+- Smooth fade + scale animation
+- No lag
+
+PLAYER
+Create a premium Now Playing screen.
+
+Large album artwork:
+- Rounded corners
+- Glass border
+- Reflection
+- Soft blurred album-art background
+- Animated color glow based on album artwork
+
+Controls:
+- Previous
+- Play/Pause
+- Next
+
+Buttons should look like liquid glass / water droplets.
+
+Seek bar:
+- Rounded liquid slider
+- Glass track
+- Soft glowing progress
+- Smooth dragging
+- Droplet-like thumb
+
+Add:
+- Current time
+- Remaining time
+
+NOW PLAYING ANIMATION
+When music plays:
+- Album artwork slowly moves/pulses
+- Background glow slowly changes
+- Glass highlights move subtly
+- Controls have subtle breathing animation
+
+Do NOT use excessive animation.
+Keep it smooth and premium.
+
+LIQUID RIPPLE
+When the user taps a button:
+- Create a subtle liquid ripple effect.
+- Ripple should look like a water wave.
+- Use Compose animation.
+- Avoid excessive visual effects.
+
+SWIPE GESTURES
+Implement:
+- Swipe up -> open Now Playing
+- Swipe down -> close Now Playing
+- Swipe left -> next song
+- Swipe right -> previous song
+
+MINI PLAYER
+At the bottom of the Home screen show a floating glass mini-player.
+
+It should contain:
+- Album art
+- Song title
+- Artist
+- Previous
+- Play/Pause
+- Next
+- Progress bar
+
+It should look like a floating piece of frosted glass.
+
+DYNAMIC ISLAND / FLOATING MUSIC ISLAND
+Create an Android-compatible floating music island.
+
+IMPORTANT:
+Android does not have Apple's Dynamic Island system API.
+
+Therefore implement two levels:
+
+1. Android MediaSession + MediaStyle notification
+2. Optional floating overlay island using SYSTEM_ALERT_WINDOW permission
+
+Floating island:
+- Small black/translucent glass pill
+- Rounded capsule shape
+- Positioned near the top of the screen
+- Shows album artwork
+- Song title
+- Play/Pause
+- Previous/Next
+- Animated waveform/equalizer
+- Expands when tapped
+- Collapses automatically
+
+When music changes:
+- Animate the island smoothly
+- New album artwork should slide/fade in
+- Show song title temporarily
+
+When music is playing in background:
+- Island should remain available if overlay permission is enabled.
+
+LOCK SCREEN
+Use Android Media3 MediaSession.
+
+The lock screen should show:
+- Album artwork
+- Song title
+- Artist
+- Play/Pause
+- Next
+- Previous
+- Seek controls if supported
+
+HOME SCREEN
+If overlay permission is granted:
+- Floating music island may appear above other apps.
+- If permission is not granted, do not crash.
+- Explain that the user needs to enable "Display over other apps".
+
+NOTIFICATION
+Create a premium media notification using Media3 MediaSession.
+
+Notification:
+- Album artwork
+- Song title
+- Artist
+- Play/Pause
+- Previous
+- Next
+
+SETTINGS
+Create a glass Settings screen.
+
+Options:
+- Theme
+- Glass intensity
+- Blur intensity
+- Animation intensity
+- Floating Island ON/OFF
+- Auto scan music
+- Notification controls
+- About
+
+Settings panels must also use glassmorphism.
+
+SEARCH
+Search should filter music instantly.
+
+Search:
+- No noticeable lag
+- Smooth transition
+- Case-insensitive
+- Search title and artist
+
+PLAYLIST
+Add:
+- Favorites
+- Recently Played
+- All Songs
+
+Allow:
+- Add/remove favorite
+- Recently played list
+- Queue
+
+FAVORITES
+Add a heart button to the Now Playing screen.
+
+Persist favorites locally.
+
+BACKGROUND PLAYBACK
+Music must continue playing when:
+- App goes to background
+- Screen turns off
+- User opens another app
+
+Use:
+Media3 ExoPlayer
+MediaSessionService
+Foreground media playback service
+
+AUDIO
+Support:
+- Play
+- Pause
+- Seek
+- Previous
+- Next
+- Queue
+- Resume playback
+
+HANDLE HEADPHONES
+Pause or handle audio focus correctly when headphones/Bluetooth disconnects.
+
+PERMISSIONS
+Request the correct permissions depending on Android version.
+
+Android 13+:
+READ_MEDIA_AUDIO
+POST_NOTIFICATIONS
+
+Older Android:
+READ_EXTERNAL_STORAGE where required.
+
+Do not request unnecessary permissions.
+
+For floating island:
+SYSTEM_ALERT_WINDOW
+
+UI ANIMATION
+Use Jetpack Compose animations.
+
+Use:
+- animateFloatAsState
+- Animatable
+- updateTransition
+- infiniteRepeatable
+- spring
+- tween
+
+Animations should feel:
+- smooth
+- liquid
+- premium
+- iOS-inspired
+
+Do NOT make animations heavy enough to cause frame drops.
+
+PERFORMANCE
+Important:
+- Avoid unnecessary recomposition
+- Use LazyColumn for songs
+- Load album artwork efficiently
+- Do not decode huge images unnecessarily
+- Keep animations lightweight
+- App should remain smooth on mid-range Android phones
+
+ALBUM ART
+Use MediaStore album art when available.
+
+If artwork is unavailable:
+Show a beautiful glass music-note placeholder.
+
+BACKGROUND GLOW
+Use album artwork colors when possible.
+
+Example:
+If album art is blue:
+create a subtle blue glow.
+
+If album art is red:
+create a subtle red glow.
+
+Keep the glow very subtle.
+
+VISUAL STYLE
+The final UI should look approximately like:
+
+iOS Liquid Glass
++
+Water/Frosted Glass
++
+Premium Music Player
++
+Dark OLED-friendly background
+
+But do NOT copy Apple's proprietary UI exactly.
+Create an original Android implementation inspired by the visual concept.
+
+COLORS
+
+Background:
+#090A0C
+
+Glass dark:
+#17191D
+
+Glass light:
+#FFFFFF with 6–14% opacity
+
+Border:
+#FFFFFF with 10–18% opacity
+
+Primary:
+#FFFFFF
+
+Secondary:
+#A8A8AE
+
+Blue glow:
+#3FA9FF
+
+Cyan glow:
+#35E0C0
+
+Black glass:
+#000000 with 30–60% opacity
+
+IMPORTANT UI RULE:
+Do not use solid white cards.
+
+Everything should feel translucent.
+
+PROJECT STRUCTURE
+
+Create a complete Android Studio project with:
+
+app/
+src/
+main/
+java/
+res/
+
+Include:
+- MainActivity
+- Compose UI
+- MusicRepository
+- MediaStore scanner
+- MusicController
+- Media3 ExoPlayer
+- MediaSessionService
+- Notification support
+- Floating Island OverlayService
+- Settings
+- Favorites
+- Search
+- Playlist
+- Models
+- Theme
+- Animations
+
+Create all required:
+- Kotlin files
+- XML resources
+- AndroidManifest.xml
+- Gradle files
+- Permissions
+- Dependencies
+
+The project must compile.
+
+Do not leave TODO placeholders.
+
+If an Apple Dynamic Island API does not exist on Android, implement the closest Android-compatible floating overlay + MediaSession solution instead.
+
+Finally:
+- Make the app launch directly into the glass music Home screen.
+- Make the design polished and production-ready.
+- Make all buttons functional.
+- Make local music playback functional.
+- Make background playback functional.
+- Make lock-screen controls functional.
+- Make search functional.
+- Make music scanning functional.
+- Make the floating island functional when permission is granted.
